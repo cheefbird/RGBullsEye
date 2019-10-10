@@ -57,12 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				06E9DFFB234ECD8C00E228B4 /* AppDelegate.swift */,
-				06E9DFFD234ECD8C00E228B4 /* SceneDelegate.swift */,
-				06E9DFFF234ECD8C00E228B4 /* ContentView.swift */,
 				06E9E001234ECD8D00E228B4 /* Assets.xcassets */,
-				06E9E006234ECD8D00E228B4 /* LaunchScreen.storyboard */,
+				06E9DFFF234ECD8C00E228B4 /* ContentView.swift */,
 				06E9E009234ECD8D00E228B4 /* Info.plist */,
+				06E9E006234ECD8D00E228B4 /* LaunchScreen.storyboard */,
 				06E9E003234ECD8D00E228B4 /* Preview Content */,
+				06E9DFFD234ECD8C00E228B4 /* SceneDelegate.swift */,
 			);
 			path = Personal_RGBullsEye;
 			sourceTree = "<group>";
