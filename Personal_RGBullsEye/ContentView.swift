@@ -18,29 +18,7 @@ struct ContentView: View {
   @State var gGuess: Double
   @State var bGuess: Double
   
-  var body: some View {
-    VStack {
-      VStack {
-        HStack {
-          VStack {
-            Color(red: rTarget, green: gTarget, blue: bTarget)
-            Text("Match this Color")
-          }
-          VStack {
-            Color(red: rGuess, green: gGuess, blue: bGuess)
-            Text("R: \(Int(rGuess * 255.0))" + "G: \(Int(gGuess * 255.0))" + "B: \(Int(bGuess * 255.0))")
-          }
-          
-          Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-            Text("Hit Me!")
-          }
-        }
-        ColorSlider(value: $rGuess, textColor: .red)
-        ColorSlider(value: $gGuess, textColor: .green)
-        ColorSlider(value: $bGuess, textColor: .blue)
-      }
-    }
-  }
+  @State var showAlert = false
   
   func computeScore() -> Int {
     let rDiff = rGuess - rTarget
@@ -52,10 +30,37 @@ struct ContentView: View {
     return Int((1.0 - diff) * 100.0 + 0.5)
   }
   
-  struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-      ContentView(rGuess: 0.5, gGuess: 0.5, bGuess: 0.5)
+  var body: some View {
+    VStack {
+      HStack {
+        VStack {
+          Color(red: rTarget, green: gTarget, blue: bTarget)
+          Text("Match this Color")
+        }
+        VStack {
+          Color(red: rGuess, green: gGuess, blue: bGuess)
+          Text("R: \(Int(rGuess * 255.0))"
+            + "G: \(Int(gGuess * 255.0))"
+            + "B: \(Int(bGuess * 255.0))")
+        }
+      }
+      
+      Button(action: { self.showAlert = true }) {
+        Text("Hit Me!")
+      }.alert(isPresented: $showAlert) {
+        Alert(title: Text("Your Score"), message: Text(String(computeScore())))
+      }.padding()
+      
+      ColorSlider(value: $rGuess, textColor: .red)
+      ColorSlider(value: $gGuess, textColor: .green)
+      ColorSlider(value: $bGuess, textColor: .blue)
     }
+  }
+}
+
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
+    ContentView(rGuess: 0.5, gGuess: 0.5, bGuess: 0.5)
   }
 }
 
