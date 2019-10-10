@@ -35,7 +35,11 @@ struct ContentView: View {
             Text("Hit Me!")
           }
         }
-        Slider(value: .constant(0.5))
+        HStack {
+          Text("0").foregroundColor(.red)
+          Slider(value: $rGuess)
+          Text("255").foregroundColor(.red)
+        }.padding(.horizontal)
       }
     }
   }
