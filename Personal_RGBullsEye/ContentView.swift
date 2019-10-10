@@ -36,13 +36,15 @@ struct ContentView: View {
           }
         }
         ColorSlider(value: $rGuess, textColor: .red)
+        ColorSlider(value: $gGuess, textColor: .green)
+        ColorSlider(value: $bGuess, textColor: .blue)
       }
     }
   }
   
   struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-      ContentView(rGuess: 0.5, gGuess: 0.5, bGuess: 0.5).previewLayout(.fixed(width: 568, height: 320))
+      ContentView(rGuess: 0.5, gGuess: 0.5, bGuess: 0.5)
     }
   }
 }
