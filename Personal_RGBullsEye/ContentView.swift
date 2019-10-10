@@ -28,7 +28,8 @@ struct ContentView: View {
           }
           VStack {
             Color(red: rGuess, green: gGuess, blue: bGuess)
-            Text("R: 127  G: 127  B: 127")
+//            Text("R: 127  G: 127  B: 127")
+            Text("R: \(Int(rGuess * 255.0))" + "G: \(Int(gGuess * 255.0))" + "B: \(Int(bGuess * 255.0))")
           }
           
           Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
